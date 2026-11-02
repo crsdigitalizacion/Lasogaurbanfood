@@ -1,0 +1,135 @@
+/* =========================================================
+   LASOGA URBAN FOOD · descubrenos.css  (v2)
+   Concepto: las franjas de neón naranja de LASOGA (las que se ven
+   detrás de todos sus platos) como hilo de la página.
+   Base (sin JS / sin GSAP / movimiento reducido): composición estática legible.
+   html.dz-cine: portada fijada controlada por scroll (GSAP).
+   ========================================================= */
+
+/* ---------- Luces de neón ---------- */
+.dz-lights{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.dz-lights i{position:absolute;left:var(--l);right:var(--r);top:var(--t);height:var(--h,10px);border-radius:999px;
+  background:linear-gradient(90deg,transparent,rgba(244,122,32,.9) 15%,rgba(255,156,66,1) 50%,rgba(244,122,32,.9) 85%,transparent);
+  box-shadow:0 0 30px 6px rgba(244,122,32,.35);filter:blur(var(--b,3px));opacity:var(--o,.6);
+  animation:dz-on 1.8s ease-out var(--d,0s) both}
+.dz-lights::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 45%,transparent,rgba(14,13,12,.75) 80%)}
+@keyframes dz-on{0%{opacity:0}18%{opacity:calc(var(--o,.6) * .5)}24%{opacity:.05}40%{opacity:calc(var(--o,.6) * .8)}46%{opacity:.15}70%,100%{opacity:var(--o,.6)}}
+
+/* ---------- 1 · Portada (base estática) ---------- */
+.dz-cine{position:relative;background:var(--carbon)}
+.dz-stage{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column}
+.dz-stage > .dz-reveal{order:1}   /* sin animación: titular primero, foto después */
+.dz-head{position:relative;z-index:3;min-height:calc(100vh - var(--nav-h));min-height:calc(100dvh - var(--nav-h) - env(safe-area-inset-top,0px));
+  margin-top:calc(var(--nav-h) + env(safe-area-inset-top,0px));display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem max(var(--gutter-r),16px) 4.5rem max(var(--gutter-l),16px);gap:1.2rem}
+.dz-head .eyebrow{justify-content:center}
+.dz-title{margin:0;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(4.6rem,17vw,14rem);line-height:.8;letter-spacing:-.02em}
+.dz-title .ln{display:block;padding:0 .04em .05em;clip-path:inset(-40% -12% 0 -12%)}
+.dz-title .ln > span{display:inline-block;position:relative;animation:dz-rise 1.1s var(--ease) both}
+.dz-title .l2 > span{animation-delay:.14s;color:transparent;-webkit-text-stroke:2px var(--cream)}
+.dz-title .l3 > span{animation-delay:.28s}
+.dz-title .dot{display:inline-block;width:.17em;height:.17em;margin-left:.05em;background:var(--orange);vertical-align:baseline}
+/* destello de luz que recorre las letras */
+.dz-title .ln > span::after{content:attr(data-t);position:absolute;inset:0;color:transparent;-webkit-text-stroke:0;pointer-events:none;
+  background:linear-gradient(100deg,transparent 42%,rgba(255,170,90,.95) 50%,transparent 58%) no-repeat;background-size:260% 100%;background-position:160% 0;
+  -webkit-background-clip:text;background-clip:text;animation:dz-sweep 7s 1.6s ease-in-out infinite}
+.dz-title .l2 > span::after{animation-delay:1.85s}
+.dz-title .l3 > span::after{animation-delay:2.1s}
+@keyframes dz-sweep{0%{background-position:160% 0}18%,100%{background-position:-60% 0}}
+.dz-sub{margin:0;font-family:var(--f-serif);font-style:italic;color:var(--orange);font-size:clamp(1.6rem,3.6vw,2.8rem);line-height:1.05;animation:dz-fade 1s .75s var(--ease) both}
+@keyframes dz-rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes dz-fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.dz-hint{position:absolute;z-index:4;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim);animation:dz-fade 1s 1.2s var(--ease) both;white-space:nowrap}
+.dz-hint i{width:1px;height:28px;background:var(--line);position:relative;overflow:hidden}
+.dz-hint i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--orange);animation:dz-drip 2.2s infinite var(--ease)}
+@keyframes dz-drip{to{top:100%}}
+
+/* Foto del entrecot + "El sabor no se negocia" (base: bloque normal) */
+.dz-reveal{position:relative;z-index:2;margin:0 max(var(--gutter-r),16px) 0 max(var(--gutter-l),16px);aspect-ratio:4/5;max-height:80vh;overflow:hidden;background:var(--carbon-2)}
+.dz-reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dz-reveal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(14,13,12,.85));pointer-events:none}
+.dz-reveal-txt{position:absolute;z-index:2;left:clamp(1rem,4vw,3rem);right:clamp(1rem,4vw,3rem);bottom:clamp(1.2rem,4vw,3rem);display:grid;gap:.6rem}
+.dz-h2{margin:0;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(2.8rem,8vw,7rem);line-height:.86;text-wrap:balance}
+.dz-h2 em{font-style:normal;color:var(--orange)}
+.dz-h2 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.04em}
+.dz-h2 .w > span{display:inline-block}
+
+/* ---------- Modo cine: pantalla fijada y controlada por scroll ---------- */
+html.dz-cine .dz-stage{height:100vh;height:100svh}
+html.dz-cine .dz-head{position:absolute;inset:0;margin:0;min-height:0;padding-top:calc(var(--nav-h) + env(safe-area-inset-top,0px) + 1rem)}
+html.dz-cine .dz-reveal{position:absolute;inset:0;margin:0;aspect-ratio:auto;max-height:none;z-index:1}
+/* Capa de recorte: fondo carbón + letras que se vuelven blancas → con "multiply" muestran la foto */
+.dz-knock{display:none}
+html.dz-cine .dz-knock{display:block;position:absolute;inset:0;z-index:2;background:var(--carbon);mix-blend-mode:multiply;will-change:transform;pointer-events:none}
+.dz-head-k{color:var(--carbon)}
+.dz-head-k .eyebrow,.dz-head-k .dz-sub{visibility:hidden;animation:none}
+.dz-head-k .dz-title .ln > span{animation:none;color:inherit;-webkit-text-stroke:0}
+.dz-head-k .dz-title .ln > span::after{display:none}
+.dz-head-k .dot{background:currentColor}
+html.dz-cine .dz-head:not(.dz-head-k){z-index:4}
+html.dz-cine .dz-lights{z-index:3}
+html.dz-cine .dz-hint{z-index:5}
+html.dz-cine .dz-reveal-txt{bottom:clamp(2.4rem,9vh,5rem);left:max(var(--gutter-l),calc((100vw - var(--maxw)) / 2 + 16px));right:max(var(--gutter-r),16px)}
+
+/* ---------- 2 · Texto de la esencia ---------- */
+.dz-essence{padding-block:clamp(3.5rem,9vw,7rem);border-bottom:1px solid var(--line)}
+.dz-essence-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,5vw,5rem);align-items:end}
+.dz-lead{margin:0;font-family:var(--f-serif);font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.15;text-wrap:balance}
+.dz-lead span{color:var(--cream-dim)}
+.dz-essence-side{display:grid;gap:1rem;justify-items:start}
+.dz-essence-side p{margin:0;font-size:1.05rem;max-width:40ch}
+
+/* ---------- 3 · Secuencia de platos (editorial, sin pin) ---------- */
+.dz-dishes{position:relative;padding-block:clamp(4rem,9vw,8rem);overflow:hidden}
+.dz-dishes-head{margin-bottom:clamp(2rem,6vw,4rem)}
+.dz-dish{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:end;perspective:1200px}
+.dz-dish + .dz-dish{margin-top:clamp(4rem,10vw,9rem)}
+.dz-dish-img{margin:0;grid-column:1 / 9;grid-row:1;position:relative;aspect-ratio:5/4;overflow:hidden;background:var(--carbon-2);
+  box-shadow:0 50px 80px -40px rgba(0,0,0,.9);transform-style:preserve-3d;will-change:transform}
+.dz-dish-img img{width:100%;height:112%;object-fit:cover;object-position:50% 50%;display:block;will-change:transform}
+.dz-dish-t{grid-column:7 / 13;grid-row:1;position:relative;z-index:2;margin:0 0 clamp(-2rem,-3vw,-1rem);
+  font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(3rem,7.4vw,7rem);line-height:.85;text-wrap:balance;
+  text-shadow:0 6px 30px rgba(0,0,0,.6)}
+.dz-dish-t em{font-style:normal;color:var(--orange)}
+.dz-dish-t small{display:block;margin-bottom:.8rem;font:400 .72rem/1 var(--f-mono);letter-spacing:.16em;color:var(--orange);text-shadow:none}
+.dz-dish-t .w{display:inline-block}
+.dz-dish.rev .dz-dish-img{grid-column:5 / 13}
+.dz-dish.rev .dz-dish-t{grid-column:1 / 7;text-align:left}
+.dz-dish-cap{position:absolute;right:10px;top:10px;z-index:2;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(14,13,12,.7);color:var(--cream-dim);padding:.22rem .45rem}
+.dz-dishes .dz-lights{opacity:.35}
+
+/* ---------- 4 · Cierre ---------- */
+.dz-end{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(6rem,16vw,12rem);text-align:center;border-top:1px solid var(--line)}
+.dz-end .glow{position:absolute;z-index:-1;pointer-events:none;width:min(900px,130vw);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(closest-side,rgba(244,122,32,.22),rgba(184,74,20,.08) 55%,transparent 75%)}
+.dz-end-title{margin:0 auto;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(3.4rem,11vw,10.5rem);line-height:.84;letter-spacing:-.015em;max-width:12ch;text-wrap:balance}
+.dz-end-title em{font-style:normal;color:var(--orange)}
+.dz-cta{margin-top:clamp(2rem,5vw,3rem);display:inline-flex;align-items:center;gap:.8rem;text-decoration:none;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--orange);color:var(--carbon);padding:1.15rem 1.6rem;border:1px solid var(--orange);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.dz-cta svg{width:16px;height:16px;transition:transform .4s var(--ease)}
+.dz-cta:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(244,122,32,.7)}
+.dz-cta:hover svg{transform:translateX(4px)}
+.dz-note{margin:2.4rem auto 0;max-width:60ch;color:var(--cream-dim);font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em}
+
+/* ---------- Responsive ---------- */
+@media (max-width:860px){
+  .dz-essence-in{grid-template-columns:1fr}
+  .dz-dish,.dz-dish.rev{display:block}
+  .dz-dish-img{aspect-ratio:5/4}
+  .dz-dish-img img{height:106%}
+  .dz-dish-t{margin:-2.2rem 0 0;padding-inline:.4rem;font-size:clamp(2.8rem,13vw,4.6rem)}
+  .dz-dish.rev .dz-dish-t{text-align:right}
+  .dz-title .l2 > span{-webkit-text-stroke-width:1.5px}
+  .dz-reveal{aspect-ratio:3/4}
+}
+@media (prefers-reduced-motion:reduce){
+  .dz-lights i,.dz-title .ln > span,.dz-sub,.dz-hint{animation:none}
+  .dz-title .ln > span::after{display:none}
+}
+
+/* Mientras se monta la animación: portada en negro y animaciones de entrada en pausa (arrancan una sola vez) */
+html.dz-wait .dz-stage > *{visibility:hidden}
+html.dz-wait .dz-stage *,html.dz-wait .dz-stage *::after{animation-play-state:paused!important}

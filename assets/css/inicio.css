@@ -1,0 +1,170 @@
+/* =========================================================
+   LASOGA URBAN FOOD · inicio.css
+   Portada cinematográfica. Dos modos:
+   - Base (sin JS, sin GSAP o con movimiento reducido): composición
+     estática y legible, frases visibles en fila.
+   - html.is-cine: pantalla fija controlada por scroll (GSAP).
+   ========================================================= */
+
+/* ---------- Modo base (estático) ---------- */
+.cine{position:relative}
+.cine-frame{
+  max-width:var(--maxw);margin-inline:auto;
+  padding-left:var(--gutter-l);padding-right:var(--gutter-r);
+  padding-block:calc(var(--nav-h) + 48px + env(safe-area-inset-top,0px)) 3rem;
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:2rem;align-items:center;
+}
+.cine-title-wrap{min-width:0}
+.cine-title{display:grid;gap:1.2rem}
+.cine-title h1{margin:0;font-family:var(--f-display);font-weight:900;text-transform:uppercase;
+  font-size:clamp(5rem,15vw,15rem);line-height:.78;letter-spacing:-.02em}
+.cine-title h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.cine-title h1 .ln > span{display:inline-block;animation:rise 1.2s var(--ease) both}
+.cine-title h1 .ln:nth-child(2) > span{animation-delay:.12s}
+.cine-title h1 .ln:nth-child(2){color:transparent;-webkit-text-stroke:2px var(--cream)}
+.cine-title h1 .serif{display:block;font-family:var(--f-serif);font-style:italic;font-weight:400;text-transform:none;
+  font-size:.3em;line-height:1;color:var(--orange);letter-spacing:0;margin-top:.15em;animation:fade 1.2s .6s var(--ease) both}
+.cine-meta{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;align-items:center}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* Hamburguesa: .hb (posición en pantalla) > .hb-float (flotación) > .hb-stage (capas) */
+.hb{position:relative;width:100%;max-width:520px;justify-self:center;z-index:4}
+.hb-float{width:100%}
+html.is-cine .hb-float{animation:hb-float 2.8s cubic-bezier(.37,0,.63,1) infinite alternate;will-change:transform}
+@keyframes hb-float{from{transform:none}to{transform:translateY(var(--float-y,-6px)) rotate(.7deg)}}
+.hb-stage{position:relative;width:100%;aspect-ratio:1/1;max-width:100%}
+.hb .layer{position:absolute;bottom:var(--b);left:calc(50% - var(--w) / 2);width:var(--w);z-index:var(--z);will-change:transform}
+.hb .layer img{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 14px rgba(0,0,0,.55))}
+.hb .fx{position:absolute;left:calc(50% - var(--w) / 2);top:44%;width:var(--w);z-index:8;opacity:0;visibility:hidden;pointer-events:none}
+.hb-shadow{position:absolute;left:12%;right:12%;bottom:-4%;height:9%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.8),transparent);z-index:0}
+.hb-glow{position:absolute;inset:4% 2% 8%;border-radius:50%;z-index:0;background:radial-gradient(closest-side,rgba(244,122,32,.16),rgba(184,74,20,.06) 60%,transparent)}
+
+/* Vapor (canvas) y luz ambiental muy tenue, ambos detrás de las capas */
+.steam{position:absolute;left:-6%;width:112%;bottom:46%;z-index:0;pointer-events:none;opacity:0;visibility:hidden;display:none;mix-blend-mode:screen}
+.steam img{width:100%;height:auto;display:block;mix-blend-mode:screen;animation:steam-drift 7s ease-in-out infinite alternate}
+@keyframes steam-drift{from{transform:translateX(-1.5%) skewX(-1.5deg)}to{transform:translateX(1.5%) skewX(1.5deg)}}
+.hb-ambient{position:absolute;inset:-55%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(244,122,32,.075),rgba(184,74,20,.03) 55%,transparent 78%)}
+
+/* Frases */
+.phrases{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem 2rem;border-top:1px solid var(--line);padding-top:1.4rem}
+.phrase{margin:0;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(1.8rem,3vw,2.6rem);line-height:.92;text-wrap:balance}
+.phrase em{font-family:var(--f-serif);font-style:italic;font-weight:400;text-transform:none;color:var(--orange)}
+.phrase .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
+.phrase .w > span{display:inline-block}
+.cine-hint{display:none}
+
+/* ---------- Modo cine (pantalla fija) ---------- */
+html.is-cine .cine{height:100vh;height:100svh;min-height:540px;overflow:hidden}
+html.is-cine .cine-frame{position:absolute;inset:0;max-width:none;display:block;padding:0}
+html.is-cine .cine-title-wrap{
+  position:absolute;inset:0;display:flex;align-items:center;
+  padding-left:max(var(--gutter-l),calc((100vw - var(--maxw)) / 2 + 16px));
+  padding-top:calc(var(--nav-h) + env(safe-area-inset-top,0px));z-index:3;pointer-events:none
+}
+html.is-cine .cine-title{pointer-events:auto}
+html.is-cine .hb{
+  --hb:min(42vw,64svh);
+  position:absolute;width:var(--hb);max-width:none;left:50%;top:var(--hb-top,54%);
+  margin-left:calc(var(--hb) / -2);margin-top:calc(var(--hb) / -2);
+}
+html.is-cine .steam{display:block}
+html.is-cine .phrases{position:absolute;inset:0;display:block;border:0;padding:0;z-index:9;pointer-events:none}
+html.is-cine .phrase{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:min(30vw,440px);font-size:clamp(2.6rem,4.8vw,5.2rem);
+  left:max(var(--gutter-l),calc((100vw - var(--maxw)) / 2 + 16px));
+}
+html.is-cine .phrase.p2{left:auto;right:max(var(--gutter-r),calc((100vw - var(--maxw)) / 2 + 16px));text-align:right;top:53%;width:min(26vw,400px)}
+html.is-cine .phrase .w > span{transform:translateY(110%)}
+html.is-cine .cine-hint{
+  display:flex;position:absolute;z-index:9;left:50%;transform:translateX(-50%);
+  bottom:calc(26px + env(safe-area-inset-bottom,0px));
+  flex-direction:column;align-items:center;gap:.45rem;
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);white-space:nowrap
+}
+.cine-hint i{width:1px;height:16px;background:var(--line);position:relative;overflow:hidden}
+.cine-hint i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--orange);animation:drip 2.2s infinite var(--ease)}
+@keyframes drip{to{top:100%}}
+
+/* Pantallas verticales (móvil y tablet en vertical) */
+@media (max-aspect-ratio:9/10){
+  html.is-cine .cine-title-wrap{align-items:flex-start;padding-top:calc(var(--nav-h) + 20px + env(safe-area-inset-top,0px));padding-right:var(--gutter-r)}
+  html.is-cine .cine-title h1{font-size:clamp(4rem,21vw,9rem)}
+  html.is-cine .hb{--hb:min(88vw,48svh);--hb-top:61%}
+  html.is-cine .phrase,html.is-cine .phrase.p2{
+    top:calc(var(--nav-h) + 20px + env(safe-area-inset-top,0px));transform:none;
+    left:var(--gutter-l);right:var(--gutter-r);width:auto;text-align:left;font-size:clamp(2.2rem,10.5vw,4rem)
+  }
+  html.is-cine .phrase.p2{font-size:clamp(2rem,9vw,3.6rem)}
+}
+@media (max-width:767px){
+  .cine-frame{grid-template-columns:1fr}
+  .cine .hb{order:-1;width:80%;max-width:360px}
+  html.is-cine .cine .hb{order:0;width:var(--hb)}
+  .phrases{grid-template-columns:1fr}
+}
+
+/* ---------- Cierre: accesos a las páginas interiores ---------- */
+.cierre{padding-block:clamp(4rem,9vw,8rem)}
+.cierre-head{display:grid;gap:1rem;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.cierre-head p{margin:0;color:var(--cream-dim);max-width:52ch}
+.doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,20px)}
+.door{
+  position:relative;overflow:hidden;isolation:isolate;text-decoration:none;
+  border:1px solid var(--line);min-height:clamp(220px,28vw,340px);padding:clamp(1.2rem,3vw,2.2rem);
+  display:flex;flex-direction:column;justify-content:space-between;gap:2rem;transition:border-color .4s
+}
+.door::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--orange);transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--ease)}
+.door:hover::before,.door:focus-visible::before{transform:scaleY(1)}
+.door:hover,.door:focus-visible{border-color:var(--orange);color:var(--carbon)}
+.door small{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);transition:color .4s}
+.door:hover small,.door:focus-visible small{color:var(--carbon)}
+.door strong{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(2.6rem,6vw,5.4rem);line-height:.88;display:block}
+.door-foot{display:flex;justify-content:space-between;align-items:end;gap:1rem}
+.door-foot span{color:var(--cream-dim);font-size:var(--t-sm);max-width:30ch;transition:color .4s}
+.door:hover .door-foot span,.door:focus-visible .door-foot span{color:var(--carbon)}
+.door .arrow{flex:none;width:56px;height:56px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;transition:transform .6s var(--ease)}
+.door:hover .arrow{transform:rotate(-45deg)}
+.door .arrow svg{width:20px;height:20px}
+@media (max-width:640px){ .doors{grid-template-columns:1fr} }
+@media (hover:none){ .door:active::before{transform:scaleY(1)} }
+
+/* Transición continua portada → cinta → accesos */
+/* (ScrollTrigger envuelve .cine en un pin-spacer, por eso se usa una clase propia) */
+.ticker-join{position:relative;z-index:5}
+html.is-cine .ticker-join{margin-top:calc(-1 * clamp(40px,11svh,120px))}
+.cierre{padding-top:clamp(2.5rem,5vw,4rem)}
+@media (max-aspect-ratio:9/10){ html.is-cine .ticker-join{margin-top:calc(-1 * clamp(32px,9svh,90px))} }
+
+/* Etiquetas de ingredientes (solo en modo cine, con la hamburguesa abierta) */
+.tag{display:none}
+html.is-cine .tag{
+  --len:clamp(36px,6vw,84px);--in:5%;
+  position:absolute;top:var(--ty);display:flex;align-items:center;gap:8px;z-index:10;pointer-events:none;
+  transform:translateY(-50%);white-space:nowrap
+}
+html.is-cine .tag-r{left:calc(100% - var(--in))}
+html.is-cine .tag-l{right:calc(100% - var(--in));flex-direction:row-reverse}
+.tag-line{display:block;width:var(--len);height:1.5px;background:var(--orange);box-shadow:0 0 6px rgba(244,122,32,.45);transform-origin:left center}
+.tag-l .tag-line{transform-origin:right center}
+.tag-dot{display:block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-inline:-6px 0;flex:none}
+.tag-l .tag-dot{margin-inline:0 -6px}
+.tag-txt{font-family:var(--f-mono);font-size:.84rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)}
+.tag-short{display:none}
+@media (max-aspect-ratio:9/10){
+  html.is-cine .tag{--len:10px;--in:3%;gap:4px}
+  .tag-line{height:2px}
+  .tag-txt{font-family:var(--f-display);font-weight:800;font-size:1.18rem;letter-spacing:.05em;line-height:1}
+  html.is-cine .tag-crisp{--in:17%}
+  .tag-crisp .tag-txt{text-align:right;line-height:.95}   /* la cebolla crujiente llega casi al borde: su etiqueta nace más adentro */
+  .tag-txt{text-shadow:0 0 6px rgba(14,13,12,.9),0 0 2px rgba(14,13,12,.9)}
+  .tag-l .tag-txt{text-align:right}
+  .tag-long{display:none} .tag-short{display:inline}
+  html.is-cine .tag-hide-m{display:none}
+}
+
+/* Mientras carga la animación: portada en negro, titular en pausa (arranca a la vez que la hamburguesa) */
+html.cine-wait .hb,html.cine-wait .cine-hint,html.cine-wait .cine-title{visibility:hidden}
+html.cine-wait .cine-title,html.cine-wait .cine-title *{animation-play-state:paused!important}

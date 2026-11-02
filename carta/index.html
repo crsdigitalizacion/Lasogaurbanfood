@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nuestra carta · LASOGA Urban Food</title>
+<meta name="description" content="Carta de LASOGA Urban Food en Logroño: hamburguesas, entrantes, acompañamientos, postres y bebidas. Demostración no oficial de CRS Digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/carta.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ===== Menú compartido ===== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../" aria-label="LASOGA Urban Food, inicio"><b>LASOGA</b><span>urban food</span></a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="../">Inicio</a></li>
+        <li><a href="../descubrenos/">Descúbrenos</a></li>
+        <li><a href="./" aria-current="page">Carta</a></li>
+        <li><a href="../galeria/">Galería</a></li>
+        <li><a href="../contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="../">Volver al inicio</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="../">Inicio</a></li>
+    <li><a href="../descubrenos/">Descúbrenos</a></li>
+    <li><a href="./" aria-current="page">Carta</a></li>
+    <li><a href="../galeria/">Galería</a></li>
+    <li><a href="../contacto/">Contacto</a></li>
+  </ul>
+  <span class="pending">Demo no oficial · CRS Digital</span>
+</div>
+
+<main>
+  <!-- ===== Cabecera ===== -->
+  <header class="carta-hero">
+    <div class="wrap carta-hero-in">
+      <a class="back" href="../"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 10H4M9 5l-5 5 5 5"/></svg>Inicio</a>
+      <p class="eyebrow">Bar · Restaurante · Logroño</p>
+      <h1 class="carta-title"><span>Nuestra</span> <span class="outline">carta</span></h1>
+      <p class="carta-sub">Elige tu próximo antojo</p>
+      <p class="carta-note">Hamburguesas, bocadillos, hot dogs, raciones para compartir, ensaladas y postres.</p>
+    </div>
+  </header>
+
+  <!-- ===== Categorías + búsqueda (barra fija bajo el menú) ===== -->
+  <div class="cat-bar">
+    <div class="wrap cat-bar-in">
+      <div class="cats" role="tablist" aria-label="Categorías de la carta" id="cats"></div>
+      <label class="search">
+        <span class="sr-only">Buscar en la carta</span>
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+        <input id="q" type="search" placeholder="Buscar plato o ingrediente" autocomplete="off">
+      </label>
+    </div>
+  </div>
+
+  <!-- ===== Platos ===== -->
+  <section class="carta-list" aria-live="polite">
+    <div class="wrap">
+      <div class="list-head">
+        <h2 class="list-title" id="listTitle">Hamburguesas</h2>
+        <span class="list-count" id="listCount"></span>
+      </div>
+      <div class="grid" id="grid" role="tabpanel" aria-labelledby="listTitle"></div>
+      <p class="empty" id="empty" hidden>No hay platos que coincidan con la búsqueda.</p>
+      <p class="demo-note">Carta de demostración. Fotografías y datos sujetos a confirmación por el establecimiento.</p>
+
+      <!-- Solo para la demo: fotos recibidas que aún no sabemos a qué plato corresponden -->
+      <div class="loose" id="loose" hidden>
+        <p class="eyebrow">Material recibido</p>
+        <h3 class="loose-title">Fotografías pendientes de asignar</h3>
+        <p class="loose-text">No hemos podido relacionarlas con seguridad con ningún plato de la carta. El establecimiento puede indicarnos a cuál corresponde cada una.</p>
+        <div class="loose-grid"></div>
+      </div>
+      <noscript><p class="empty">Activa JavaScript para ver la carta.</p></noscript>
+    </div>
+  </section>
+
+  <!-- ===== Cierre ===== -->
+  <section class="carta-end">
+    <div class="wrap carta-end-in">
+      <p class="h2">¿Ya lo <em>tienes</em>?</p>
+      <div class="carta-end-actions">
+        <a class="btn" href="../contacto/">Cómo llegar</a>
+        <a class="btn ghost" href="../">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Pie compartido ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-grid">
+      <div><h3>Navegación</h3><ul>
+        <li><a href="../">Inicio</a></li>
+        <li><a href="../descubrenos/">Descúbrenos</a></li>
+        <li><a href="./">Carta</a></li>
+        <li><a href="../galeria/">Galería</a></li>
+        <li><a href="../contacto/">Contacto</a></li>
+      </ul></div>
+      <div><h3>Visítanos</h3><ul>
+        <li>Calle Belchite, 4<br>26003 Logroño, La Rioja</li>
+        <li><a href="tel:+34941234578">941 23 45 78</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=LASOGA%20Urban%20Food%2C%20Calle%20Belchite%204%2C%2026003%20Logro%C3%B1o" target="_blank" rel="noopener">Cómo llegar ↗</a></li>
+        <li class="f-note">Es obligatorio reservar · Terraza · Se admiten perros</li>
+      </ul></div>
+      <div><h3>Horario</h3><dl class="f-hours">
+        <dt>Martes – jueves</dt><dd>11:00–15:30 · 20:00–23:00</dd>
+        <dt>Viernes</dt><dd>11:00–15:30 · 21:00–23:30</dd>
+        <dt>Sábado</dt><dd>12:00–16:00 · 21:00–23:30</dd>
+        <dt>Domingo y lunes</dt><dd>Cerrado</dd>
+      </dl><p class="f-note">Según Google Maps. Puede variar en festivos.</p></div>
+      <div><h3>Síguenos</h3><ul><li><a href="https://www.instagram.com/lasogaurbanfood/" target="_blank" rel="noopener">@lasogaurbanfood ↗</a></li></ul></div>
+    </div>
+    <p class="f-word" aria-hidden="true">Lasoga</p>
+    <div class="f-bottom">
+      <p>Demostración no oficial. Esta página es una propuesta de diseño y no es la web oficial de LASOGA URBAN FOOD.</p>
+      <span class="credit">Diseño y desarrollo · <a href="https://crsdigital.es" target="_blank" rel="noopener">CRS Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Detalle del plato -->
+<dialog class="dish-modal" id="dishModal" aria-labelledby="dmTitle">
+  <div class="dm-panel">
+    <button type="button" class="dm-close" aria-label="Cerrar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+    <div id="dmContent"></div>
+    <p class="dm-foot"><span id="dmCount"></span><span class="dm-hint">Desliza para ver más platos</span></p>
+  </div>
+  <button type="button" class="dm-arrow dm-prev" aria-label="Plato anterior"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></button>
+  <button type="button" class="dm-arrow dm-next" aria-label="Plato siguiente"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg></button>
+</dialog>
+
+<div class="demo-badge" role="note">Demo no oficial</div>
+
+<script src="../assets/data/carta.js"></script>
+<script src="../assets/js/base.js"></script>
+<script src="../assets/js/carta.js"></script>
+</body>
+</html>

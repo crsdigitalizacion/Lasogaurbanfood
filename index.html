@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LASOGA Urban Food</title>
+<meta name="description" content="LASOGA Urban Food, bar-restaurante en Logroño. Demostración no oficial de web creada por CRS Digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/inicio.css">
+<script>
+  /* Activa el modo cine antes de pintar, salvo con movimiento reducido. inicio.js lo retira si GSAP no carga. */
+  /* Modo cine + espera: la portada no se muestra hasta que la animación está lista
+     (evita ver la hamburguesa montada y que luego "vuelva a empezar"). Seguro: a los 4 s se muestra igualmente. */
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('is-cine', 'cine-wait');
+    setTimeout(function () { document.documentElement.classList.remove('cine-wait'); }, 4000);
+  }
+</script>
+
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ===== Menú compartido (igual en todas las páginas) ===== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="./" aria-label="LASOGA Urban Food, inicio"><b>LASOGA</b><span>urban food</span></a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="./" aria-current="page">Inicio</a></li>
+        <li><a href="descubrenos/">Descúbrenos</a></li>
+        <li><a href="carta/">Carta</a></li>
+        <li><a href="galeria/">Galería</a></li>
+        <li><a href="contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="carta/">Ver la carta</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="./" aria-current="page">Inicio</a></li>
+    <li><a href="descubrenos/">Descúbrenos</a></li>
+    <li><a href="carta/">Carta</a></li>
+    <li><a href="galeria/">Galería</a></li>
+    <li><a href="contacto/">Contacto</a></li>
+  </ul>
+  <span class="pending">Demo no oficial · CRS Digital</span>
+</div>
+
+<main>
+  <!-- ===== Portada cinematográfica (fija mientras el scroll controla la secuencia) ===== -->
+  <section class="cine" id="cine" aria-label="Presentación">
+    <div class="cine-frame">
+
+      <div class="cine-title-wrap">
+        <div class="cine-title" id="cineTitle">
+          <p class="eyebrow">Bar · Restaurante · Logroño</p>
+          <h1>
+            <span class="ln"><span>La</span></span>
+            <span class="ln"><span>Soga</span></span>
+            <span class="serif">urban food</span>
+          </h1>
+          <div class="cine-meta"><span class="pending">Demostración no oficial</span></div>
+        </div>
+      </div>
+
+      <!-- Hamburguesa por capas. Orden de abajo arriba. data-spread: desplazamiento vertical al abrirse (fracción del tamaño). -->
+      <div class="hb" id="hb" role="img" aria-label="Hamburguesa de LASOGA, que se abre capa a capa al desplazarse">
+        <div class="hb-float" id="hbFloat">
+          <div class="hb-stage" id="hbStage">
+            <!-- Vapor real (fondo negro + mix-blend-mode: screen), detrás de todas las capas -->
+            <div class="steam" aria-hidden="true"><img src="assets/hamburguesa/vapor.webp" alt="" decoding="async"></div>
+            <div class="hb-ambient" aria-hidden="true"></div>
+            <div class="hb-glow" aria-hidden="true"></div>
+            <div class="hb-shadow" aria-hidden="true"></div>
+
+            <!-- Salpicaduras de salsa y migas de cebolla crujiente (data-x/y: destino relativo al tamaño) -->
+            <img class="fx" src="assets/hamburguesa/salsa-fondo.webp" alt="" aria-hidden="true" data-x="-.78" data-y="-.30" data-r="-24" style="--w:24%">
+            <img class="fx" src="assets/hamburguesa/salsa-fondo.webp" alt="" aria-hidden="true" data-x=".80" data-y="-.12" data-r="30" style="--w:22%">
+            <img class="fx" src="assets/hamburguesa/salsa-fondo.webp" alt="" aria-hidden="true" data-x="-.70" data-y=".22" data-r="150" style="--w:18%">
+            <img class="fx" src="assets/hamburguesa/salsa-fondo.webp" alt="" aria-hidden="true" data-x=".66" data-y=".30" data-r="-140" style="--w:20%">
+            <img class="fx fx-extra" src="assets/hamburguesa/salsa-fondo.webp" alt="" aria-hidden="true" data-x="-.42" data-y="-.62" data-r="12" style="--w:14%">
+            <img class="fx fx-extra" src="assets/hamburguesa/salsa-fondo.webp" alt="" aria-hidden="true" data-x=".48" data-y="-.56" data-r="-10" style="--w:15%">
+            <img class="fx" src="assets/hamburguesa/05-cebolla-crujiente.webp" alt="" aria-hidden="true" data-x="-.62" data-y="-.04" data-r="18" style="--w:26%">
+            <img class="fx" src="assets/hamburguesa/05-cebolla-crujiente.webp" alt="" aria-hidden="true" data-x=".62" data-y="-.36" data-r="-22" style="--w:24%">
+            <img class="fx fx-extra" src="assets/hamburguesa/05-cebolla-crujiente.webp" alt="" aria-hidden="true" data-x=".56" data-y=".12" data-r="30" style="--w:20%">
+            <img class="fx fx-extra" src="assets/hamburguesa/05-cebolla-crujiente.webp" alt="" aria-hidden="true" data-x="-.52" data-y=".40" data-r="-12" style="--w:18%">
+
+            <div class="layer" data-spread=".20"  data-r="-3" data-x="-.02" style="--w:90%;--b:0%;--z:1"><img src="assets/hamburguesa/01-pan-base.webp" alt=""></div>
+            <div class="layer" data-spread=".08"  data-r="2"  data-x=".02"  style="--w:86%;--b:19%;--z:2"><img src="assets/hamburguesa/02-carne-queso.webp" alt=""><span class="tag tag-l" data-i="4" style="--ty:52%"><i class="tag-line"></i><b class="tag-dot"></b><span class="tag-txt"><span class="tag-long">Carne con queso</span><span class="tag-short">Carne</span></span></span></div>
+            <div class="layer" data-spread="-.10" data-r="-5" data-x="-.03" style="--w:96%;--b:38%;--z:3"><img src="assets/hamburguesa/03-bacon.webp" alt=""><span class="tag tag-r" data-i="3" style="--ty:74%"><i class="tag-line"></i><b class="tag-dot"></b><span class="tag-txt"><span class="tag-long">Bacon</span><span class="tag-short">Bacon</span></span></span></div>
+            <div class="layer" data-spread="-.25" data-r="4"  data-x=".03"  style="--w:90%;--b:45%;--z:4"><img src="assets/hamburguesa/04-cebolla-morada.webp" alt=""></div>
+            <div class="layer" data-spread="-.40" data-r="-3" data-x="-.02" style="--w:94%;--b:52%;--z:5"><img src="assets/hamburguesa/05-cebolla-crujiente.webp" alt=""><span class="tag tag-l tag-crisp" data-i="2" style="--ty:50%"><i class="tag-line"></i><b class="tag-dot"></b><span class="tag-txt"><span class="tag-long">Cebolla crujiente</span><span class="tag-short">Cebolla<br>crujiente</span></span></span></div>
+            <div class="layer" data-spread="-.62" data-r="5"  data-x=".02"  style="--w:90%;--b:55%;--z:6"><img src="assets/hamburguesa/06-pan-superior.webp" alt=""><span class="tag tag-r" data-i="1" style="--ty:42%"><i class="tag-line"></i><b class="tag-dot"></b><span class="tag-txt"><span class="tag-long">Pan brioche</span><span class="tag-short">Brioche</span></span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phrases">
+        <p class="phrase p1"><span class="w"><span>No es solo</span></span> <span class="w"><span>una <em>burger</em></span></span></p>
+        <p class="phrase p2"><span class="w"><span>El secreto</span></span> <span class="w"><span>está en</span></span> <span class="w"><span><em>cada capa</em></span></span></p>
+        <p class="phrase p3"><span class="w"><span>¿Te atreves</span></span> <span class="w"><span>a <em>probarla</em>?</span></span></p>
+      </div>
+
+      <div class="cine-hint" id="cineHint" aria-hidden="true">Desliza para descubrir<i></i></div>
+    </div>
+  </section>
+
+  <div class="ticker ticker-join" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Lasoga</span><span>Urban food</span><span>Bar</span><span>Restaurante</span><span>Logroño</span><span>La Rioja</span>
+      <span>Lasoga</span><span>Urban food</span><span>Bar</span><span>Restaurante</span><span>Logroño</span><span>La Rioja</span>
+    </div>
+  </div>
+
+  <!-- ===== Cierre: accesos a las páginas interiores ===== -->
+  <section class="cierre" aria-labelledby="cierreTitle">
+    <div class="wrap">
+      <div class="cierre-head">
+        <p class="eyebrow rv">Sigue la soga</p>
+        <h2 class="h2 rv" id="cierreTitle">Elige por dónde <em>empezar</em></h2>
+      </div>
+      <div class="doors">
+        <a class="door rv" href="descubrenos/">
+          <small>01 · La casa</small>
+          <strong>Descúbrenos</strong>
+          <div class="door-foot"><span>Quiénes somos, cómo es el local y qué se cuece en LASOGA.</span>
+            <i class="arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10h12M11 5l5 5-5 5"/></svg></i></div>
+        </a>
+        <a class="door rv rv-d1" href="carta/">
+          <small>02 · La cocina</small>
+          <strong>Ver nuestra carta</strong>
+          <div class="door-foot"><span>Platos por categorías, con ingredientes y precios de la carta oficial.</span>
+            <i class="arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10h12M11 5l5 5-5 5"/></svg></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Pie compartido ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-grid">
+      <div><h3>Navegación</h3><ul>
+        <li><a href="./">Inicio</a></li>
+        <li><a href="descubrenos/">Descúbrenos</a></li>
+        <li><a href="carta/">Carta</a></li>
+        <li><a href="galeria/">Galería</a></li>
+        <li><a href="contacto/">Contacto</a></li>
+      </ul></div>
+      <div><h3>Visítanos</h3><ul>
+        <li>Calle Belchite, 4<br>26003 Logroño, La Rioja</li>
+        <li><a href="tel:+34941234578">941 23 45 78</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=LASOGA%20Urban%20Food%2C%20Calle%20Belchite%204%2C%2026003%20Logro%C3%B1o" target="_blank" rel="noopener">Cómo llegar ↗</a></li>
+        <li class="f-note">Es obligatorio reservar · Terraza · Se admiten perros</li>
+      </ul></div>
+      <div><h3>Horario</h3><dl class="f-hours">
+        <dt>Martes – jueves</dt><dd>11:00–15:30 · 20:00–23:00</dd>
+        <dt>Viernes</dt><dd>11:00–15:30 · 21:00–23:30</dd>
+        <dt>Sábado</dt><dd>12:00–16:00 · 21:00–23:30</dd>
+        <dt>Domingo y lunes</dt><dd>Cerrado</dd>
+      </dl><p class="f-note">Según Google Maps. Puede variar en festivos.</p></div>
+      <div><h3>Síguenos</h3><ul><li><a href="https://www.instagram.com/lasogaurbanfood/" target="_blank" rel="noopener">@lasogaurbanfood ↗</a></li></ul></div>
+    </div>
+    <p class="f-word" aria-hidden="true">Lasoga</p>
+    <div class="f-bottom">
+      <p>Demostración no oficial. Esta página es una propuesta de diseño y no es la web oficial de LASOGA URBAN FOOD.</p>
+      <span class="credit">Diseño y desarrollo · <a href="https://crsdigital.es" target="_blank" rel="noopener">CRS Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="demo-badge" role="note">Demo no oficial</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/js/base.js"></script>
+<script src="assets/js/inicio.js"></script>
+</body>
+</html>

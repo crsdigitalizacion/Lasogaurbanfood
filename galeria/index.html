@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galería · LASOGA Urban Food</title>
+<meta name="description" content="Galería de platos de LASOGA Urban Food, bar restaurante en Logroño: hamburguesas, raciones, tartar, postres. Demostración no oficial de CRS Digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/galeria.css">
+<script>
+  /* Portada en espera hasta que la animación está lista (las fotos entran una sola vez). Seguro: 4 s. */
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('gh-wait');
+    setTimeout(function () { document.documentElement.classList.remove('gh-wait'); }, 4000);
+  }
+</script>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ===== Menú compartido ===== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../" aria-label="LASOGA Urban Food, inicio"><b>LASOGA</b><span>urban food</span></a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="../">Inicio</a></li>
+        <li><a href="../descubrenos/">Descúbrenos</a></li>
+        <li><a href="../carta/">Carta</a></li>
+        <li><a href="./" aria-current="page">Galería</a></li>
+        <li><a href="../contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="../carta/">Ver la carta</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="../">Inicio</a></li>
+    <li><a href="../descubrenos/">Descúbrenos</a></li>
+    <li><a href="../carta/">Carta</a></li>
+    <li><a href="./" aria-current="page">Galería</a></li>
+    <li><a href="../contacto/">Contacto</a></li>
+  </ul>
+  <span class="pending">Demo no oficial · CRS Digital</span>
+</div>
+
+<main>
+  <!-- 1 · Portada: tres fotos a distinta profundidad -->
+  <section class="gh" aria-labelledby="ghTitle">
+    <div class="gh-glow" aria-hidden="true" style="width:80vw;aspect-ratio:1;right:-25vw;top:-15vw"></div>
+    <div class="gh-glow" aria-hidden="true" style="width:50vw;aspect-ratio:1;left:-20vw;bottom:-20vw;opacity:.6"></div>
+    <div class="wrap gh-in">
+      <div class="gh-copy">
+        <p class="eyebrow">Galería · LASOGA</p>
+        <h1 class="gh-title" id="ghTitle"><span class="ln"><span>El sabor</span></span><span class="ln"><span>en</span></span><span class="ln"><span>imágenes<b aria-hidden="true"></b></span></span></h1>
+        <p class="gh-sub">Cada plato tiene algo que contar.</p>
+        <p class="gh-count">12 fotografías</p>
+      </div>
+      <div class="gh-stack" aria-hidden="true">
+        <div class="gh-card back" style="--x:52%;--y:2%;--w:46%;--z:1;--ar:4/5">
+          <div class="gh-float" style="--fd:7s;--fdl:0s;--fx:6px;--fy:-12px;--r0:2deg;--r1:3.5deg">
+            <figure><img src="../assets/carta/tarta-queso-960.webp" srcset="../assets/carta/tarta-queso-480.webp 480w, ../assets/carta/tarta-queso-960.webp 960w" sizes="(max-width:860px) 60vw, 30vw" width="960" height="768" alt="" fetchpriority="high"></figure>
+          </div>
+        </div>
+        <div class="gh-card mid" style="--x:0%;--y:18%;--w:58%;--z:2;--ar:5/4">
+          <div class="gh-float" style="--fd:8s;--fdl:-2s;--fx:-8px;--fy:10px;--r0:-3deg;--r1:-1.5deg">
+            <figure><img src="../assets/carta/steak-tartar-960.webp" srcset="../assets/carta/steak-tartar-480.webp 480w, ../assets/carta/steak-tartar-960.webp 960w" sizes="(max-width:860px) 60vw, 30vw" width="960" height="768" alt="" fetchpriority="high"></figure>
+          </div>
+        </div>
+        <div class="gh-card front" style="--x:28%;--y:40%;--w:58%;--z:3;--ar:4/5">
+          <div class="gh-float" style="--fd:6s;--fdl:-1s;--fx:5px;--fy:-14px;--r0:1deg;--r1:-0.5deg">
+            <figure><img src="../assets/carta/lasogaburguesa-960.webp" srcset="../assets/carta/lasogaburguesa-480.webp 480w, ../assets/carta/lasogaburguesa-960.webp 960w" sizes="(max-width:860px) 60vw, 30vw" width="960" height="768" alt="" fetchpriority="high"></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · Galería editorial -->
+  <section class="gal" aria-labelledby="galTitle">
+    <div class="wrap">
+      <div class="gal-head">
+        <h2 id="galTitle">Hecho en <em>LASOGA.</em></h2>
+        <p>Pulsa cualquier fotografía para verla en grande.</p>
+      </div>
+      <div class="gal-grid">
+        <figure class="gt" data-a="left" data-big="1" style="--c:1 / 6;--ar:4/5;--mt:0;--mc:2;--mar:5/4">
+          <button type="button" data-full="../assets/carta/lasogaburguesa-960.webp" data-cap="Lasogaburguesa" aria-label="Ampliar foto 1: Lasogaburguesa">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/lasogaburguesa-480.webp" srcset="../assets/carta/lasogaburguesa-480.webp 480w, ../assets/carta/lasogaburguesa-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Lasogaburguesa con patatas gajo" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Lasogaburguesa</span><span>01</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="right" data-big="1" style="--c:7 / 13;--ar:5/4;--mt:clamp(3rem,10vw,9rem);--mc:1;--mar:1/1">
+          <button type="button" data-full="../assets/carta/steak-tartar-960.webp" data-cap="Tartar" aria-label="Ampliar foto 2: Tartar">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/steak-tartar-480.webp" srcset="../assets/carta/steak-tartar-480.webp 480w, ../assets/carta/steak-tartar-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Tartar con flor comestible" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Tartar</span><span>02</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="up" data-big="0" style="--c:2 / 6;--ar:1/1;--mt:0;--mc:1;--mar:4/5;--mmt:2.4rem">
+          <button type="button" data-full="../assets/carta/patatas-bravas-960.webp" data-cap="Patatas bravas Lasoga" aria-label="Ampliar foto 3: Patatas bravas Lasoga">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/patatas-bravas-480.webp" srcset="../assets/carta/patatas-bravas-480.webp 480w, ../assets/carta/patatas-bravas-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Patatas bravas Lasoga" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Patatas bravas Lasoga</span><span>03</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="zoom" data-big="1" style="--c:7 / 13;--ar:5/4;--mt:clamp(-4rem,-6vw,-2rem);--mc:2;--mar:5/4;--mw:84%;--mjs:end">
+          <button type="button" data-full="../assets/carta/laminado-entrecot-960.webp" data-cap="Laminado de entrecot" aria-label="Ampliar foto 4: Laminado de entrecot">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/laminado-entrecot-480.webp" srcset="../assets/carta/laminado-entrecot-480.webp 480w, ../assets/carta/laminado-entrecot-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Laminado de entrecot con pimientos" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Laminado de entrecot</span><span>04</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="tilt" data-big="1" style="--c:1 / 9;--ar:16/10;--mt:0;--mc:1;--mar:1/1">
+          <button type="button" data-full="../assets/carta/tostas-foie-setas-960.webp" data-cap="Montaditos" aria-label="Ampliar foto 5: Montaditos">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/tostas-foie-setas-480.webp" srcset="../assets/carta/tostas-foie-setas-480.webp 480w, ../assets/carta/tostas-foie-setas-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Montaditos de foie y setas" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Montaditos</span><span>05</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="left" data-big="0" style="--c:1 / 5;--ar:4/5;--mt:0;--mc:1;--mar:4/5;--mmt:2.4rem">
+          <button type="button" data-full="../assets/carta/burger-salsa-blanca-960.webp" data-cap="Hamburguesa" aria-label="Ampliar foto 6: Hamburguesa">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/burger-salsa-blanca-480.webp" srcset="../assets/carta/burger-salsa-blanca-480.webp 480w, ../assets/carta/burger-salsa-blanca-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Hamburguesa con salsa blanca" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Hamburguesa</span><span>06</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="up" data-big="0" style="--c:5 / 9;--ar:4/5;--mt:clamp(2rem,6vw,5rem);--mc:2;--mar:5/4">
+          <button type="button" data-full="../assets/carta/bocadillo-jamon-bacon-queso-960.webp" data-cap="Bocadillo" aria-label="Ampliar foto 7: Bocadillo">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/bocadillo-jamon-bacon-queso-480.webp" srcset="../assets/carta/bocadillo-jamon-bacon-queso-480.webp 480w, ../assets/carta/bocadillo-jamon-bacon-queso-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Bocadillo de jamón, bacon y queso" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Bocadillo</span><span>07</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="right" data-big="0" style="--c:9 / 13;--ar:4/5;--mt:0;--mc:1;--mar:4/5">
+          <button type="button" data-full="../assets/carta/burger-bacon-piquillo-960.webp" data-cap="Hamburguesa" aria-label="Ampliar foto 8: Hamburguesa">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/burger-bacon-piquillo-480.webp" srcset="../assets/carta/burger-bacon-piquillo-480.webp 480w, ../assets/carta/burger-bacon-piquillo-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Hamburguesa con bacon y queso" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Hamburguesa</span><span>08</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="zoom" data-big="1" style="--c:1 / 8;--ar:5/4;--mt:0;--mc:1;--mar:1/1;--mmt:2.4rem">
+          <button type="button" data-full="../assets/carta/patatas-gajo-carne-deshilachada-960.webp" data-cap="Patatas con carne deshilachada" aria-label="Ampliar foto 9: Patatas con carne deshilachada">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/patatas-gajo-carne-deshilachada-480.webp" srcset="../assets/carta/patatas-gajo-carne-deshilachada-480.webp 480w, ../assets/carta/patatas-gajo-carne-deshilachada-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Patatas gajo con carne deshilachada" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Patatas con carne deshilachada</span><span>09</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="right" data-big="0" style="--c:9 / 13;--ar:4/5;--mt:clamp(2rem,8vw,7rem);--mc:2;--mar:5/4;--mw:84%;--mjs:start">
+          <button type="button" data-full="../assets/carta/tarta-queso-960.webp" data-cap="Tarta de queso Lasoga" aria-label="Ampliar foto 10: Tarta de queso Lasoga">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/tarta-queso-480.webp" srcset="../assets/carta/tarta-queso-480.webp 480w, ../assets/carta/tarta-queso-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Tarta de queso cremosa con helado de turrón" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Tarta de queso Lasoga</span><span>10</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="left" data-big="0" style="--c:3 / 8;--ar:5/4;--mt:0;--mc:1;--mar:1/1">
+          <button type="button" data-full="../assets/carta/tortilla-cebolla-caramelizada-960.webp" data-cap="Tortilla" aria-label="Ampliar foto 11: Tortilla">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/tortilla-cebolla-caramelizada-480.webp" srcset="../assets/carta/tortilla-cebolla-caramelizada-480.webp 480w, ../assets/carta/tortilla-cebolla-caramelizada-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Ración servida con pan" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Tortilla</span><span>11</span></figcaption>
+        </figure>
+        <figure class="gt" data-a="tilt" data-big="0" style="--c:8 / 12;--ar:4/5;--mt:clamp(-3rem,-5vw,-1.5rem);--mc:1;--mar:4/5;--mmt:2.4rem">
+          <button type="button" data-full="../assets/carta/burger-cebolla-encurtida-960.webp" data-cap="Hamburguesa" aria-label="Ampliar foto 12: Hamburguesa">
+            <span class="gt-frame"><span class="gt-zoom" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4M9 6.5v5M6.5 9h5"/></svg></span><img src="../assets/carta/burger-cebolla-encurtida-480.webp" srcset="../assets/carta/burger-cebolla-encurtida-480.webp 480w, ../assets/carta/burger-cebolla-encurtida-960.webp 960w" sizes="(max-width:860px) 50vw, 50vw" width="960" height="768" alt="Hamburguesa con cebolla encurtida" loading="lazy" decoding="async"></span>
+          </button>
+          <figcaption><span>Hamburguesa</span><span>12</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Cierre -->
+  <section class="gal-end" aria-labelledby="galEnd">
+    <div class="gh-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 id="galEnd">¿Ya sabes qué te <em>apetece?</em></h2>
+      <a class="gal-cta" href="../carta/">Descubre nuestra carta <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+    </div>
+  </section>
+</main>
+
+<!-- Visor ampliado -->
+<dialog class="lb" id="lb" aria-label="Fotografía ampliada">
+  <div class="lb-stage"><div class="lb-slide"><img class="lb-img" src="" alt=""><p class="lb-cap"></p></div></div>
+  <button type="button" class="lb-btn lb-close" aria-label="Cerrar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" aria-label="Foto anterior"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></button>
+  <button type="button" class="lb-btn lb-next" aria-label="Foto siguiente"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg></button>
+  <p class="lb-count" aria-live="polite"><b>01</b> / <span>12</span></p>
+</dialog>
+
+<!-- ===== Pie compartido ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-grid">
+      <div><h3>Navegación</h3><ul>
+        <li><a href="../">Inicio</a></li>
+        <li><a href="../descubrenos/">Descúbrenos</a></li>
+        <li><a href="../carta/">Carta</a></li>
+        <li><a href="./">Galería</a></li>
+        <li><a href="../contacto/">Contacto</a></li>
+      </ul></div>
+      <div><h3>Visítanos</h3><ul>
+        <li>Calle Belchite, 4<br>26003 Logroño, La Rioja</li>
+        <li><a href="tel:+34941234578">941 23 45 78</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=LASOGA%20Urban%20Food%2C%20Calle%20Belchite%204%2C%2026003%20Logro%C3%B1o" target="_blank" rel="noopener">Cómo llegar ↗</a></li>
+        <li class="f-note">Es obligatorio reservar · Terraza · Se admiten perros</li>
+      </ul></div>
+      <div><h3>Horario</h3><dl class="f-hours">
+        <dt>Martes – jueves</dt><dd>11:00–15:30 · 20:00–23:00</dd>
+        <dt>Viernes</dt><dd>11:00–15:30 · 21:00–23:30</dd>
+        <dt>Sábado</dt><dd>12:00–16:00 · 21:00–23:30</dd>
+        <dt>Domingo y lunes</dt><dd>Cerrado</dd>
+      </dl><p class="f-note">Según Google Maps. Puede variar en festivos.</p></div>
+      <div><h3>Síguenos</h3><ul><li><a href="https://www.instagram.com/lasogaurbanfood/" target="_blank" rel="noopener">@lasogaurbanfood ↗</a></li></ul></div>
+    </div>
+    <p class="f-word" aria-hidden="true">Lasoga</p>
+    <div class="f-bottom">
+      <p>Demostración no oficial. Esta página es una propuesta de diseño y no es la web oficial de LASOGA URBAN FOOD.</p>
+      <span class="credit">Diseño y desarrollo · <a href="https://crsdigital.es" target="_blank" rel="noopener">CRS Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="demo-badge" role="note">Demo no oficial</div>
+
+<script src="../assets/js/base.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../assets/js/galeria.js"></script>
+</body>
+</html>

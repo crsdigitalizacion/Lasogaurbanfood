@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Descúbrenos · LASOGA Urban Food</title>
+<meta name="description" content="Descubre LASOGA Urban Food, bar restaurante en Calle Belchite 4, Logroño. Demostración no oficial de CRS Digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/descubrenos.css">
+<script>
+  /* Portada en espera hasta que la animación está montada: así su entrada se ve una sola vez.
+     Seguro: a los 4 s se muestra igualmente. */
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('dz-cine', 'dz-wait');
+    setTimeout(function () { document.documentElement.classList.remove('dz-wait'); }, 4000);
+  }
+</script>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ===== Menú compartido ===== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../" aria-label="LASOGA Urban Food, inicio"><b>LASOGA</b><span>urban food</span></a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="../">Inicio</a></li>
+        <li><a href="./" aria-current="page">Descúbrenos</a></li>
+        <li><a href="../carta/">Carta</a></li>
+        <li><a href="../galeria/">Galería</a></li>
+        <li><a href="../contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="../carta/">Ver la carta</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="../">Inicio</a></li>
+    <li><a href="./" aria-current="page">Descúbrenos</a></li>
+    <li><a href="../carta/">Carta</a></li>
+    <li><a href="../galeria/">Galería</a></li>
+    <li><a href="../contacto/">Contacto</a></li>
+  </ul>
+  <span class="pending">Demo no oficial · CRS Digital</span>
+</div>
+
+<main>
+  <!-- 1 · Portada cinematográfica (fijada mientras el scroll abre el titular y revela el entrecot) -->
+  <section class="dz-cine" aria-labelledby="dzTitle">
+    <div class="dz-stage">
+      <div class="dz-lights" aria-hidden="true">
+        <i style="--t:14%;--l:-8%;--r:30%;--h:9px;--o:.65;--d:.1s"></i>
+        <i style="--t:26%;--l:38%;--r:-8%;--h:6px;--o:.45;--d:.45s;--b:5px"></i>
+        <i style="--t:70%;--l:-8%;--r:46%;--h:7px;--o:.5;--d:.7s"></i>
+        <i style="--t:82%;--l:28%;--r:-8%;--h:10px;--o:.6;--d:.95s;--b:4px"></i>
+        <i style="--t:92%;--l:60%;--r:-8%;--h:5px;--o:.35;--d:1.2s;--b:6px"></i>
+      </div>
+      <figure class="dz-reveal">
+        <img src="../assets/descubrenos/entrecot-1254.webp" srcset="../assets/descubrenos/entrecot-720.webp 720w, ../assets/descubrenos/entrecot-1254.webp 1254w" sizes="100vw" width="1254" height="1254" alt="Laminado de entrecot con pimientos asados y una cerveza en LASOGA" decoding="async">
+        <figcaption class="dz-reveal-txt">
+          <p class="eyebrow">Nuestra esencia</p>
+          <h2 class="dz-h2"><span class="w"><span>El sabor</span></span> <span class="w"><span>no se</span></span> <span class="w"><span><em>negocia.</em></span></span></h2>
+        </figcaption>
+      </figure>
+      <!-- Capa de recorte: el mismo titular, cuyas letras dejan ver la foto (fusión "multiplicar"). Solo en modo cine. -->
+      <div class="dz-knock" aria-hidden="true">
+        <div class="dz-head dz-head-k">
+          <p class="eyebrow">Descúbrenos · Logroño</p>
+          <p class="dz-title"><span class="ln l1"><span>No es</span></span><span class="ln l2"><span>solo</span></span><span class="ln l3"><span>comer<b class="dot"></b></span></span></p>
+          <p class="dz-sub">Es disfrutar cada bocado.</p>
+        </div>
+      </div>
+      <div class="dz-head">
+        <p class="eyebrow">Descúbrenos · Logroño</p>
+        <h1 class="dz-title" id="dzTitle">
+          <span class="ln l1"><span data-t="No es">No es</span></span>
+          <span class="ln l2"><span data-t="solo">solo</span></span>
+          <span class="ln l3"><span data-t="comer">comer<b class="dot" aria-hidden="true"></b></span></span>
+        </h1>
+        <p class="dz-sub">Es disfrutar cada bocado.</p>
+      </div>
+      <span class="dz-hint" aria-hidden="true">Desliza<i></i></span>
+    </div>
+  </section>
+
+  <!-- 2 · Texto de la esencia -->
+  <section class="dz-essence" aria-label="Nuestra esencia">
+    <div class="wrap dz-essence-in">
+      <p class="dz-lead rv">Hay comidas que se disfrutan. <span>Y otras que se recuerdan.</span></p>
+      <div class="dz-essence-side rv rv-d1">
+        <p>En LASOGA, queremos que cada visita tenga algo especial.</p>
+        <span class="pending">Texto provisional · pendiente de aprobación</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Una experiencia diferente: composición editorial -->
+  <section class="dz-dishes" aria-labelledby="dzExp">
+    <div class="wrap">
+      <div class="dz-dishes-head"><p class="eyebrow rv" id="dzExp">Una experiencia diferente</p></div>
+    <article class="dz-dish">
+      <figure class="dz-dish-img"><img src="../assets/carta/lasogaburguesa-960.webp" srcset="../assets/carta/lasogaburguesa-480.webp 480w, ../assets/carta/lasogaburguesa-960.webp 960w" sizes="(max-width:860px) 92vw, 66vw" width="960" height="768" alt="Lasogaburguesa con patatas gajo" loading="lazy" decoding="async"><figcaption class="dz-dish-cap">Lasogaburguesa</figcaption></figure>
+      <h3 class="dz-dish-t"><small>01</small><span class="w">Sabor que se</span> <span class="w"><em>siente.</em></span></h3>
+    </article>
+    <article class="dz-dish rev">
+      <figure class="dz-dish-img"><img src="../assets/carta/steak-tartar-960.webp" srcset="../assets/carta/steak-tartar-480.webp 480w, ../assets/carta/steak-tartar-960.webp 960w" sizes="(max-width:860px) 92vw, 66vw" width="960" height="768" alt="Tartar emplatado con flor comestible" loading="lazy" decoding="async"><figcaption class="dz-dish-cap">Steak tartar</figcaption></figure>
+      <h3 class="dz-dish-t"><small>02</small><span class="w">Cada detalle</span> <span class="w"><em>cuenta.</em></span></h3>
+    </article>
+    <article class="dz-dish">
+      <figure class="dz-dish-img"><img src="../assets/carta/patatas-bravas-960.webp" srcset="../assets/carta/patatas-bravas-480.webp 480w, ../assets/carta/patatas-bravas-960.webp 960w" sizes="(max-width:860px) 92vw, 66vw" width="960" height="768" alt="Patatas bravas Lasoga" loading="lazy" decoding="async"><figcaption class="dz-dish-cap">Patatas bravas Lasoga</figcaption></figure>
+      <h3 class="dz-dish-t"><small>03</small><span class="w">Hecho para</span> <span class="w"><em>disfrutar.</em></span></h3>
+    </article>
+    </div>
+  </section>
+
+  <!-- 4 · Cierre -->
+  <section class="dz-end" aria-labelledby="dzEnd">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 class="dz-end-title rv" id="dzEnd">El siguiente bocado es <em>tuyo.</em></h2>
+      <a class="dz-cta rv rv-d1" href="../carta/">Descubre nuestra carta <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+      <p class="dz-note rv rv-d2">Página de demostración. Textos e imágenes pendientes de aprobación por el establecimiento.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Pie compartido ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-grid">
+      <div><h3>Navegación</h3><ul>
+        <li><a href="../">Inicio</a></li>
+        <li><a href="./">Descúbrenos</a></li>
+        <li><a href="../carta/">Carta</a></li>
+        <li><a href="../galeria/">Galería</a></li>
+        <li><a href="../contacto/">Contacto</a></li>
+      </ul></div>
+      <div><h3>Visítanos</h3><ul>
+        <li>Calle Belchite, 4<br>26003 Logroño, La Rioja</li>
+        <li><a href="tel:+34941234578">941 23 45 78</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=LASOGA%20Urban%20Food%2C%20Calle%20Belchite%204%2C%2026003%20Logro%C3%B1o" target="_blank" rel="noopener">Cómo llegar ↗</a></li>
+        <li class="f-note">Es obligatorio reservar · Terraza · Se admiten perros</li>
+      </ul></div>
+      <div><h3>Horario</h3><dl class="f-hours">
+        <dt>Martes – jueves</dt><dd>11:00–15:30 · 20:00–23:00</dd>
+        <dt>Viernes</dt><dd>11:00–15:30 · 21:00–23:30</dd>
+        <dt>Sábado</dt><dd>12:00–16:00 · 21:00–23:30</dd>
+        <dt>Domingo y lunes</dt><dd>Cerrado</dd>
+      </dl><p class="f-note">Según Google Maps. Puede variar en festivos.</p></div>
+      <div><h3>Síguenos</h3><ul><li><a href="https://www.instagram.com/lasogaurbanfood/" target="_blank" rel="noopener">@lasogaurbanfood ↗</a></li></ul></div>
+    </div>
+    <p class="f-word" aria-hidden="true">Lasoga</p>
+    <div class="f-bottom">
+      <p>Demostración no oficial. Esta página es una propuesta de diseño y no es la web oficial de LASOGA URBAN FOOD.</p>
+      <span class="credit">Diseño y desarrollo · <a href="https://crsdigital.es" target="_blank" rel="noopener">CRS Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="demo-badge" role="note">Demo no oficial</div>
+
+<script src="../assets/js/base.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../assets/js/descubrenos.js"></script>
+</body>
+</html>
