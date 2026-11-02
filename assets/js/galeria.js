@@ -48,7 +48,7 @@
         right: { x: 70, rotation: 2 },
         up:    { y: 90 },
         zoom:  { scale: 0.86 },
-        tilt:  { y: 60, rotationX: 12, transformPerspective: 900, transformOrigin: '50% 100%' }
+        tilt:  { y: 60, scale: 0.94, transformOrigin: '50% 100%' }
       };
       gsap.utils.toArray('.gt').forEach(el => {
         const k = kinds[el.dataset.a] || kinds.up;
@@ -56,7 +56,7 @@
         if (narrow) { if (f.x) f.x *= 0.5; if (f.y) f.y *= 0.6; }
         gsap.fromTo(el, { ...f, autoAlpha: 0 },
           { x: 0, y: 0, rotation: 0, rotationX: 0, scale: 1, autoAlpha: 1, ease: 'power2.out',
-            scrollTrigger: { trigger: el, start: 'top 96%', end: 'top 62%', scrub: 0.5 } });
+            scrollTrigger: { trigger: el, start: 'top 100%', end: narrow ? 'top 82%' : 'top 75%', scrub: 0.5 } });
         // parallax + pequeño cambio de escala dentro del marco (más marcado en las grandes)
         const img = el.querySelector('img'), big = el.dataset.big === '1';
         gsap.fromTo(img, { yPercent: big ? -5 : -2, scale: big ? 1.1 : 1.05 },

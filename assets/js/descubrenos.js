@@ -70,8 +70,8 @@
       const dir = d.classList.contains('rev') ? 1 : -1;      // lado desde el que entra
       const fig = d.querySelector('.dz-dish-img'), img = fig.querySelector('img');
       const words = d.querySelectorAll('.dz-dish-t .w');
-      gsap.timeline({ scrollTrigger: { trigger: d, start: 'top 95%', end: 'top 40%', scrub: 0.6 } })
-        .fromTo(fig, { xPercent: dir * (narrow ? 12 : 18), rotationY: -dir * (narrow ? 8 : 14), scale: 0.86, autoAlpha: 0.25, transformPerspective: 1200 },
+      gsap.timeline({ scrollTrigger: { trigger: d, start: 'top 98%', end: narrow ? 'top 72%' : 'top 62%', scrub: 0.6 } })
+        .fromTo(fig, { xPercent: dir * (narrow ? 12 : 18), rotationY: -dir * (narrow ? 8 : 14), scale: 0.86, autoAlpha: 0.45, transformPerspective: 1200 },
                      { xPercent: 0, rotationY: 0, scale: 1, autoAlpha: 1, ease: 'power2.out' }, 0)
         .fromTo(words, { x: -dir * (narrow ? 40 : 90), autoAlpha: 0 }, { x: 0, autoAlpha: 1, stagger: 0.12, ease: 'power2.out' }, 0.15);
       gsap.fromTo(img, { yPercent: narrow ? -4 : -8 }, { yPercent: 0, ease: 'none',

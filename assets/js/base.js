@@ -79,7 +79,7 @@
     if (url.pathname === location.pathname && url.search === location.search) return;   // anclas de la misma página
     e.preventDefault();
     root.classList.add('leaving');
-    setTimeout(() => { location.href = url.href; }, 280);
+    setTimeout(() => { location.href = url.href; }, 200);
   });
   addEventListener('pageshow', e => { if (e.persisted) root.classList.remove('leaving'); });   // volver atrás desde caché
 

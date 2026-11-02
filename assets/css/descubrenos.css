@@ -49,7 +49,7 @@
 /* Foto del entrecot + "El sabor no se negocia" (base: bloque normal) */
 .dz-reveal{position:relative;z-index:2;margin:0 max(var(--gutter-r),16px) 0 max(var(--gutter-l),16px);aspect-ratio:4/5;max-height:80vh;overflow:hidden;background:var(--carbon-2)}
 .dz-reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.dz-reveal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(14,13,12,.85));pointer-events:none}
+.dz-reveal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(14,13,12,.72));pointer-events:none}
 .dz-reveal-txt{position:absolute;z-index:2;left:clamp(1rem,4vw,3rem);right:clamp(1rem,4vw,3rem);bottom:clamp(1.2rem,4vw,3rem);display:grid;gap:.6rem}
 .dz-h2{margin:0;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(2.8rem,8vw,7rem);line-height:.86;text-wrap:balance}
 .dz-h2 em{font-style:normal;color:var(--orange)}

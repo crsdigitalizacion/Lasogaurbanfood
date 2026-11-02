@@ -25,8 +25,8 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;background:#0e0d0c}
 /* Transición entre páginas: entrada con fundido y salida antes de navegar (solo opacidad, sin transform en body) */
-body{animation:page-in .5s ease-out backwards}
-html.leaving body{opacity:0;transition:opacity .28s ease-in}
+body{animation:page-in .3s ease-out backwards}
+html.leaving body{opacity:0;transition:opacity .2s ease-in}
 @keyframes page-in{from{opacity:0}}
 body{background:var(--carbon);color:var(--cream);font-family:var(--f-body);font-size:var(--t-md);line-height:1.6;overflow-x:hidden;margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--carbon)}
